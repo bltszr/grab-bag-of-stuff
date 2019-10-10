@@ -1,6 +1,6 @@
 # find the prime below 1000000 which can be written as a sum of a sequence of consecutive primes (e.g. 2, 3, 5, 7, 11, 13, and so on)
 # example the longest one below 100 is 41 which is the sum of 2, 3, 5, 7, 11, and 13
-#this works for the 100 but not for the 1000000. Can't tell if it works for any other number.
+# this works for the 100 but not for the 1000000. Can't tell if it works for any other number.
 
 import time
 

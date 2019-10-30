@@ -7,7 +7,18 @@ Find the smallest number for which this case is not true.
 Note thus that prime numbers (p) can be expressed as n - 2(k^2)
 """
 import time
-from primFinder import primOdd
+
+
+"""
+this one is way too slow
+
+def primOdd(n): # for odd numbers only
+    prim = True
+    for i in range(3, n, 2):
+        if n % i == 0:
+            prim = False
+            break
+    return prim
 
 start = time.time()
 isFound = False
@@ -26,3 +37,9 @@ while isFound == False:
         continue
         
 print("The smallest counterexample for Goldbach's other conjecture is %d found in the time of %f seconds" % (n, (time.time()-start)))
+"""
+
+compOddGen = []
+def goldbach(limit, x, y):
+    compOddGen.extend([x * y for x in range(3, limit, 2) for y in range(2, x + 1)])
+    

@@ -26,10 +26,12 @@ def converter(s):
         print("Wrong input")
     finally:
         print(s)
+
 if __name__ == "__main__":
     inp = input("Insert number to permutate: ")
     start = time()
     print(perm(converter(inp), 0))
     end = time()
     print(end - start)
-    print(hashdict)
+    print(sorted(hashdict))
+    print(sorted(set(hashdict))[1000000])

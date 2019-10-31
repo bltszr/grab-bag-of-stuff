@@ -1,14 +1,19 @@
-class listMatrix:
-    def __init__(self, List):
-        self.List = List
+class listMatrix: # assuming the matrices are 1-indexed, might implement asserting later
+    def __init__(self, matrixList):
+        self.matrixList = matrixList
+        # horizontal elements of the matrix
+        self.Horizontal = matrixList
+        # vertical elements of the matrix
+        self.Vertical = [[i[j] for i in self.matrixList] for j in range(len(self.matrixList[0]))]
+    # getters for each element specific on the list
     def getHor(self, index):
-        return self.List[index - 1]
-    def getVer(self, index): # assuming the matrices are 1-indexed
-        return [i[index - 1] for i in self.List]
+        return self.matrixList[index - 1]
+    def getVer(self, index):
+        return self.Vertical[index - 1]
 
 def matrixGetter(x, y):
     matrix = []
-    print("Input matrix: ", flush=True)
+    print("Input matrix: ")
     for i in range(y):
         n = input()
         lst = [int(x) for x in n.split()]

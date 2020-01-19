@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-// vector_sizewill be the size of the vector
+// vector_size will be the size of the vector
 vector<bool> erastothenes(int vector_size) {
 	vector<bool> res (vector_size, true);
 	res[0] = false;

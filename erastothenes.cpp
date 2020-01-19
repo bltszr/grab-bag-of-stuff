@@ -26,10 +26,12 @@ int main() {
 	cout << "Input the number: ";
 	cin >> n;
 	vector<bool> prim = erastothenes(n);
+/* uncomment this to not just test the speed itself	
 	for (int i = 0; i < prim.size(); i++) {
 		if (prim[i]) {
 			cout << i << ": " << prim[i] << endl;
 		}
 	}
+*/
 	return 0;
 }

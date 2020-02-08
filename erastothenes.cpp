@@ -4,7 +4,7 @@ using namespace std;
 
 // vector_size will be the size of the vector
 vector<bool> erastothenes(int vector_size) {
-	vector<bool> res (vector_size, true);
+	vector<bool> res (vector_size, true); //initialize all values of the vector to true
 	res[0] = false;
 	res[1] = false;
 	for (int i = 2; i < vector_size/ 2; i++) {

@@ -8,53 +8,31 @@ using namespace std;
 // negative and positive integers
 // might have to refactor later
 
-int* squaring(int * intarr, int size) {
-	
-	// first we find the element with the smallest square possible
-	int* pivot_ptr;
-	for (int i = 0; i < size - 1; i++) {
-		// if we have 0, that's always going to be the smallest one
-		if (intarr[i] <= 0 && intarr[i+1] > 0) {
-			if ((0 - intarr[i]) <= intarr[i + 1]) {
-				pivot_ptr = &intarr[i];
-			} else {
-				pivot_ptr = &intarr[i + 1];
-			}
-			break;
-		}
+int abs(int i ) {
+	if (i < 0) {
+		i = (0 - i);
 	}
-	
-	// begin squaring
-	int *res_ptr;
-	res_ptr = (int*) malloc(size * sizeof(int));
-	
-	// init the first value
-	res_ptr[0] = (*pivot_ptr) * (*pivot_ptr);
+	return i;
+}
 
-	// init the pointers to the back and front
-	int * front_ptr = pivot_ptr + 1;
-	int * back_ptr = pivot_ptr - 1;
-	for (int j = 1; j < size; j++) {
-		cout << "Back pointer pointing to " << *back_ptr << " and front pointer pointing to " << *front_ptr << endl;
+int* squaring(int* intarr, int size) {
+	// init vars
+	static int* res_ptr = (int*) malloc(size * sizeof(int));
+	int* front_ptr = intarr;
+	int* back_ptr = front_ptr + size;
+	int i = size - 1;
+	while (i <= 0)  {
+		int back = abs(*back_ptr);
+		int front = abs(*front_ptr);
 		
-		// if neither have reached the end
-		if (back_ptr >= intarr && front_ptr <= intarr + size) {
-			if ((0 - (*back_ptr)) < *front_ptr) {
-				res_ptr[j] = (*back_ptr) * (*back_ptr);
-				back_ptr--;
-			} else {
-				res_ptr[j] = (*front_ptr) * (*front_ptr);
-				front_ptr++;
-			}
-		// if back_ptr has reached the end but front_ptr hasn't
-		} else if (front_ptr <= intarr + size) {
-			res_ptr[j] = (*front_ptr) * (*front_ptr);
-			front_ptr++;
-		// only posibility now is that back_ptr hasn't reached the end
-		} else {
-			res_ptr[j] = (*back_ptr) * (*back_ptr);
+		if (back >= front) {
+			res_ptr[i] = (back * back);
 			back_ptr--;
+		} else {
+			res_ptr[i] = (front * front);
+			front_ptr++;
 		}
+		i--;
 	}
 	return res_ptr;
 

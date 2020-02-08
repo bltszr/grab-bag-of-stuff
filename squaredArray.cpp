@@ -8,11 +8,14 @@ using namespace std;
 // negative and positive integers
 // might have to refactor later
 
-int abs(int i ) {
+int abs(int i) {
+	int j;
 	if (i < 0) {
-		i = (0 - i);
+		j = (0 - i);
+	} else {
+		j = i;
 	}
-	return i;
+	return j;
 }
 
 int* squaring(int* intarr, int size) {

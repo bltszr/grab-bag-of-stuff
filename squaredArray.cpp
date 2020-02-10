@@ -22,9 +22,9 @@ int* squaring(int* intarr, int size) {
 	// init vars
 	static int* res_ptr = (int*) malloc(size * sizeof(int));
 	int* front_ptr = intarr;
-	int* back_ptr = front_ptr + size;
+	int* back_ptr = intarr + (size - 1);
 	int i = size - 1;
-	while (i <= 0)  {
+	while (i >= 0)  {
 		int back = abs(*back_ptr);
 		int front = abs(*front_ptr);
 		
